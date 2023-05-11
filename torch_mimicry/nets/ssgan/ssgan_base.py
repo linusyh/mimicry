@@ -170,7 +170,7 @@ class SSGANBaseDiscriminator(gan.BaseDiscriminator):
         # Compute SS loss
         _, output_classes = self.forward(images_rot)
 
-        err_SS = F.cross_entropy(input=output_classes, target=class_labels)
+        err_SS = F.cross_entropy(input=output_classes, target=class_labels.long())
 
         # Scale SS loss
         err_SS = scale * err_SS
